@@ -1,0 +1,188 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jul  5 22:04:52 2020
+"""
+
+import numpy as np
+
+lista = [25, 12, 15, 66, 12.5]
+vector = np.array(lista)
+
+print("- vector original")
+print(vector)
+
+print("- sumarle uno a cada elemento del vector")
+print(vector + 1)
+
+print("- multiplicar por cinco a cada elemento")
+print(vector * 5)
+
+print("- suma de los elementos del vector")
+print(np.sum(vector))
+
+print("- el vector sumado a si mismo")
+print(vector + vector)
+
+print("- suma de vectores vector y vector2 (mismo tamaño)")
+vector2 = np.array([11, 55, 1.2, 7.4, -8])
+print(vector + vector2)
+
+
+print("\n- Índices")
+print(vector[3])
+print(vector[1:4])
+print(vector[1:])
+print(vector[:4])
+
+print("\n- Vector de ceros")
+vector_ceros = np.zeros(5)
+print(vector_ceros)
+
+print("- vector de unos")
+vector_unos = np.ones(5)
+print(vector_unos)
+
+print("- vector con todos los valores dos")
+vector_dos = np.zeros(5) + 2
+print(vector_dos)
+
+print("- vector con todos los valores dos (otra forma)")
+vector_dos_otro = np.ones(5) * 2
+print(vector_dos_otro)
+
+print("\n- Matriz creada con una lista de listas")
+lista_de_listas = [[1, -4], [12, 3], [7.2, 5]]
+matriz = np.array(lista_de_listas)
+print(matriz)
+
+print("\n- matriz creada con np.zeros")
+dimenciones_ceros = (2,3)
+matriz_ceros = np.zeros(dimenciones_ceros)
+print(matriz_ceros)
+
+print("\n-  matriz creada con np.ones")
+dimenciones_unos = (3,2)
+matriz_unos = np.ones(dimenciones_unos)
+print(matriz_unos)
+
+print("\n- copia d la matriz creada con np.ones")
+matriz_copia = np.copy(matriz_unos)
+print(matriz_copia)
+
+print("\n- Ejercicio\n"
+      "Crear una matriz de 4x9, que esté imicializada con el valor 0.5")
+dimenciones = (4,9)
+matriz = np.ones(dimenciones) - 0.5
+print(matriz)
+
+lista_de_listas = [[1,-4],[12,3],[7.2,5.0]]
+a = np.array(lista_de_listas)
+
+print("\n- Elementos individuales")
+print(a[0,1])
+print(a[2,1])
+
+print("\n- vector de elementos de la fila 1")
+print(a[1,:])
+
+print("- vector de elementos de la columna 0")
+print(a[:,0])
+
+print("- submatriz 2x2 con las 2 primeras filas")
+print(a[0:2])
+
+print("- submatriz con las ultimas 2 filas")
+print(a[1:3])
+
+print("\n- Modificando matrices")
+lista_de_listas = [[1,-4],[12,3],[7,5]]
+a = np.array(lista_de_listas)
+
+print("- Matriz Original")
+print(a)
+
+print("- Le asignamos el valor 4 a los a los elementos de la columna 0")
+a[:,0] = 4
+print(a)
+
+print("- Dividimos por 3 la columna 1")
+a[:,1] = a[:,1] / 3.0
+print(a)
+
+print("- multiplicamos por 5 la fila 1")
+a[1:2] = a[1:2] * 5
+print(a)
+
+print("- Sumamaos 1 a toda la matriz")
+a = a + 1
+print(a)
+
+print("\n- Ejercicios")
+lista_de_listas = [[-44,12],[12.0,51],[1300,-5.0]]
+a = np.array(lista_de_listas)
+
+print("- Matriz Original")
+print(a)
+
+print("- Restarle 5 a la fila 2 de la matriz")
+a[2:] = a[2:] - 5
+print(a)
+
+print("- Multiplicar por 2 a toda la matriz")
+a = a * 5
+print(a)
+
+print("- Dividir por -5  a las dos primeras filas de la matriz")
+a[0:2] = a[0:2] / 5
+print(a)
+
+print("- Imprimir la ultima fila de la matriz")
+ultima_fila = a[2:]
+print(ultima_fila)
+
+print("- Calculala suma de los elementos de a utilizando dos fors anidados")
+suma = 0
+for f in range(len(a)):
+    for c in range(len(a[f])):
+        suma += a[f,c]
+print(suma)
+
+print("- Calcular la suma de los elementos de a utilizado np.sum")
+matriz_sum = np.sum(a)
+print(matriz_sum)
+
+print("- Calcular el promedio de los elementos de las 2 primera filas de a utilizando 2 fors anidados")
+suma = 0
+contador = 0
+for f in range(2):
+    for c in range(len(a[0])):
+        suma += a[f,c]
+        contador += 1
+promedio = suma / contador
+print(promedio)
+
+print("- Calcular el promediode los elementosde las primeas dos filasde utilizando slice y np.mean")
+prome = np.mean(a[0:2])
+print(prome)
+
+# Generar una matriz de 7 por 9. Las primeras 3 columnas de la matriz tienen que tener el valor 0. 
+# La cuarta columna debe tener el valor 0.5, excepto por el último valor de esa columna, que tiene que ser 0.7.
+# Las otras tres columnas deben tener el valor 1.
+
+# Luego imprimir la matriz
+# Imprimir también el promedio de la ultima fila.
+matriz = np.zeros([7,9])
+matriz[3:4] += 0.5
+matriz[3,8] += 0.2
+matriz[4:9] += 1
+promedio = np.mean(matriz[6:])
+print(matriz)
+print(promedio)
+
+#La siguiente linea crea una matriz aleatoria de 5 por 5 con valores entre 0 y 1
+matriz_random = np.random.rand(5,5) 
+print(matriz_random)
+for f in range(len(matriz_random)):
+    for c in range(len(matriz_random[0])):
+        if(matriz_random[f,c] > 0.5):
+            print("matriz_random[" , f , "," , c , "]")
